@@ -1,7 +1,19 @@
-stage('Checkout') {
-    steps {
-        git branch: 'main', url: 'https://github.com/your-org/your-repo.git'
-        // or with credentials:
-        // git branch: 'main', url: 'https://github.com/your-org/your-repo.git', credentialsId: 'github-creds'
+pipeline {
+    agent {
+        label 'linux'
+    }
+ 
+    stages {
+        stage('Test Agent') {
+            steps {
+                echo 'Running on Jenkins Agent'
+            }
+        }
+ 
+        stage('Build') {
+            steps {
+                echo 'Build completed successfully'
+            }
+        }
     }
 }
